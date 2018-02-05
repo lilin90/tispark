@@ -362,7 +362,7 @@ class TiStrategy(context: SQLContext) extends Strategy with Logging {
 
     projectionTiRefs ++ filterTiRefs foreach { dagReq.addRequiredColumn }
 
-    val output = (aggregateExpressions.map(aliasPushedPartialResult) ++ groupingExpressions).map {
+    val output = (aggregateExpressions.map(aliasPushedPartialResult) ++ projects).map {
       _.toAttribute
     }
 
